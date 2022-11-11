@@ -1,4 +1,6 @@
 const inquirer = require('inquirer')
+const helper = require('./helper')
+
 
 inquirer
   .prompt([
@@ -30,7 +32,12 @@ inquirer
   ])
   .then((response) => {
     console.log({response});
-    var teamMngName = response.teammanager
-    console.log(teamMngName)
+    const teamMngName = response.teammanager
+    const empID = response.empid
+    const email = response.email
+    const officeNum = response.officenumber
+    const gitHubUser = response.githubusername
+    console.log(teamMngName,empID,email,officeNum,gitHubUser)
+    helper.writeHtmlFile(response)
   })
   
