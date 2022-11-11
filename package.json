@@ -1,0 +1,23 @@
+{
+  "name": "employee-profile-creator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasAllan/Employee-Profile-Creator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EliasAllan/Employee-Profile-Creator/issues"
+  },
+  "homepage": "https://github.com/EliasAllan/Employee-Profile-Creator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
