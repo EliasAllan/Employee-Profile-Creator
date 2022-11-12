@@ -1,5 +1,6 @@
 const inquirer = require('inquirer')
 const helper = require('./helper')
+const fs = require('fs')
 
 employeeArr = [];
 
@@ -60,8 +61,8 @@ const addInt =() => {
     },
     {
       type: 'Input',
-      name: 'intgit',
-      message: "What is the intern's GitHub username ?"
+      name: 'intschool',
+      message: "What school does the intern go to?"
     },
     
   ]).then((data) => {
@@ -69,7 +70,7 @@ const addInt =() => {
       intName: data.intname,
       intId: data.intid,
       intEmail: data.intemail,
-      intGit: data.intgit,
+      intSchool: data.intschool,
     })
     console.log(`${data.intname} is a good engineer`)     
     console.log(employeeArr);
@@ -78,6 +79,7 @@ const addInt =() => {
 }
 
 const exit =() =>{
+  writeIndexFile(employeeArr)
   console.log("goodbye")
 }
 
@@ -149,6 +151,14 @@ inquirer
     // console.log(teamMngName,empID,email,officeNum,gitHubUser)
     // helper.writeHtmlFile(data)
     
+  });
+}
+
+function writeIndexFile(data){
+
+  return fs.writeFile("teams-webpage.html", JSON.stringify(data), (err) =>{
+    if(err) return console.error(err);
+    console.log("index file created !")
   });
 }
 
