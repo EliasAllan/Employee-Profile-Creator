@@ -1,6 +1,15 @@
 const inquirer = require('inquirer')
 const helper = require('./helper')
 
+employeeArr = [];
+
+const addEng = () => {
+}
+
+const addInt =() => { 
+}
+
+const menu = () => {
 
 inquirer
   .prompt([
@@ -29,15 +38,36 @@ inquirer
       message: "Enter Github username",
       name: 'githubusername'
     },
+    {
+      type: 'list',
+      message: 'What do you want to do ?',
+      name: 'addemployee',
+      choices: ['Add an engineer', 'Add an intern', 'Finish building your team']
+    },
   ])
-  .then((response) => {
-    console.log({response});
-    const teamMngName = response.teammanager
-    const empID = response.empid
-    const email = response.email
-    const officeNum = response.officenumber
-    const gitHubUser = response.githubusername
-    console.log(teamMngName,empID,email,officeNum,gitHubUser)
-    helper.writeHtmlFile(response)
-  })
+
+  .then((data) => {
+    switch (data.addemployee) {
+    
+      case 'Add an enginer':
+          addEng()
+          break;
+      case 'Add an intern':
+          addInt()
+          break;
+      default:
+          exit();
+    }
+    // console.log({data});
+    // const teamMngName = data.teammanager
+    // const empID = data.empid
+    // const email = data.email
+    // const officeNum = data.officenumber
+    // const gitHubUser = data.githubusername
+    // console.log(teamMngName,empID,email,officeNum,gitHubUser)
+    // helper.writeHtmlFile(data)
   
+  });
+}
+
+menu();
