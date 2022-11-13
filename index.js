@@ -1,8 +1,26 @@
 const inquirer = require('inquirer')
 const helper = require('./helper')
-const fs = require('fs')
+const fs = require('fs');
+const { getSystemErrorName } = require('util');
+const { getDiffieHellman } = require('crypto');
 
 employeeArr = [];
+
+// The first class is an `Employee` parent class with the following properties and methods:
+
+//* `name`
+
+//* `id`
+
+//* `email`
+
+//* `getName()`
+
+//* `getId()`
+
+//* `getEmail()`
+
+//* `getRole()`&mdash;returns `'Employee'`
 
 const addEng = () => {
   inquirer
