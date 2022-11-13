@@ -1,5 +1,5 @@
 const inquirer = require('inquirer')
-const helper = require('./helper')
+const helper = require('./src/helper')
 const fs = require('fs');
 const { getSystemErrorName } = require('util');
 const { getDiffieHellman } = require('crypto');
@@ -174,7 +174,7 @@ inquirer
 
 function writeIndexFile(data){
 
-  return fs.writeFile("teams-webpage.html", JSON.stringify(data), (err) =>{
+  return fs.writeFile("./dist/teams-webpage.html", JSON.stringify(data), (err) =>{
     if(err) return console.error(err);
     console.log("index file created !")
   });
