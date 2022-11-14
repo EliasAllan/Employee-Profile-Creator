@@ -3,57 +3,49 @@ const helper = require('./src/helper')
 const fs = require('fs');
 const { getSystemErrorName } = require('util');
 const { getDiffieHellman } = require('crypto');
+const writeHtmlFile = require('./src/helper')
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
 
 employeeArr = [];
-
-// The first class is an `Employee` parent class with the following properties and methods:
-
-//* `name`
-
-//* `id`
-
-//* `email`
-
-//* `getName()`
-
-//* `getId()`
-
-//* `getEmail()`
-
-//* `getRole()`&mdash;returns `'Employee'`
-
+// employeeArr.push(new Engineer("Alan", 5, "Allan@email.com", "github2"), new Engineer("Engi", 10, "Engi@email.com","gitty"))
+// var engineers = employeeArr.filter(employee=> employee.github)
+// function engineerCard(object){
+//   return `<div>
+//   <h1>${object.name}</h1>
+//   <a href="https://www.github.com/${object.github}">${object.github}</a>
+//   </div>`
+// }
+// var htmlString = ""
+// engineers.map(employee => htmlString+= engineerCard(employee))
+// console.log(htmlString)
 const addEng = () => {
   inquirer
     .prompt([
       {
         type: 'Input',
-        name: 'engname',
+        name: 'engName',
         message: "What is the engineer's name ?"
       },
       {
         type: 'Input',
-        name: 'engid',
+        name: 'engId',
         message: "What is the engineer's ID ?"
       },
       {
         type: 'Input',
-        name: 'engemail',
+        name: 'engEmail',
         message: "What is the engineer's email ?"
       },
       {
         type: 'Input',
-        name: 'enggit',
+        name: 'engGit',
         message: "What is the engineer's GitHub username ?"
       },
       
     ]).then((data) => {
-      employeeArr.push({
-        engName: data.engname,
-        engId: data.engid,
-        engEmail: data.engemail,
-        engGit: data.enggit,
-      })
-      console.log(`${data.engname} is a good engineer`)     
+      employeeArr.push(new Engineer(data.engName, data.engId, data.engEmail, data.engGit))
+      console.log(`${data.engName} is a good engineer`)     
       console.log(employeeArr);
       mainMenu();
     })
@@ -97,7 +89,7 @@ const addInt =() => {
 }
 
 const exit =() =>{
-  writeIndexFile(employeeArr)
+  writeHtmlFile(employeeArr)
   console.log("goodbye")
 }
 
@@ -128,18 +120,17 @@ const mainMenu = () => {
 }
 
 const loginMenu = () => {
-
 inquirer
   .prompt([
     {
       type: 'input',
       message: 'What is the team managers name?',
-      name: 'teammanager',
+      name: 'name',
     },
     {
       type: 'input',
       message: 'Enter employee ID',
-      name: 'empid',
+      name: 'empId',
     },
     {
       type: 'input',
@@ -149,16 +140,12 @@ inquirer
     {
       type: 'input',
       message: "Enter office number",
-      name: 'officenumber'
-    },
-    {
-      type: 'input',
-      message: "Enter Github username",
-      name: 'githubusername'
-    },
+      name: 'officeNumber'
+    }
   ])
 
   .then((data) => {
+    employeeArr.push(new Manager(data.name, data.empId, data.email, data.officeNumber))
     mainMenu()
     // console.log({data});
     // const teamMngName = data.teammanager
@@ -172,12 +159,5 @@ inquirer
   });
 }
 
-function writeIndexFile(data){
 
-  return fs.writeFile("./dist/teams-webpage.html", JSON.stringify(data), (err) =>{
-    if(err) return console.error(err);
-    console.log("index file created !")
-  });
-}
-
-loginMenu();
+// loginMenu();

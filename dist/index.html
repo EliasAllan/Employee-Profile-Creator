@@ -1,16 +1,4 @@
-const fs = require('fs');
-
-
-
-
-function writeHtmlFile(data){
-  console.log(data)
-  var managers = data.filter(employee => employee.officenumber)
-  var engineers = data.filter(employee => employee.github )
-  var interns = data.filter(employee => employee.school)
-
-  //format the data
-  var html = `<!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -23,13 +11,7 @@ function writeHtmlFile(data){
   </head>
   <body>
     <container class= "card" style="width: 18rem;">
-${htmlStringVariable}    </container>
+ <h1>true<h1>
+    </container>
   </body>
-  </html>`;
-  return fs.writeFile("./dist/index.html", html, (err) => {
-    if(err) return console.error(err);
-    console.log("Success!");
-  });
-}
-
-module.exports = writeHtmlFile
+  </html>
