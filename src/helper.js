@@ -30,9 +30,10 @@ function writeHtmlFile(data){
     //   console.log("objecti" + engineers)
     //   console.log("objectlength" + engineers.length)
     //   console.log("objectiname" + engineers[i].name)
+    for(i=0;i < engineers.length; i++){
     return `<container class="card" style="width: 15rem;">
   <div class="bg-info" style="color:white">
-    <h1>${engineers[0].name}</h1>
+    <h1>${engineers[i].name}</h1>
     <h2>Engineer</h2>
     <!-- <a href="https://www.github.com/1234">1234</a> -->
   </div>
@@ -42,7 +43,7 @@ function writeHtmlFile(data){
     <h3>Office number: ${engineers[0].github}</h3>
   </div>
 </container>`
-  }
+  }}
 
 console.log(managerCard)
 console.log(engineerCard)
@@ -61,7 +62,7 @@ console.log(engineerCard)
   <body>
   <h1 class="bg-danger jumbotron text-center" > My Team </h1>
         ${managerCard(managers)}
-        ${engineerCard(engineers.forEach(element => engineerCard(engineers.name)))}
+        ${engineers.map(employee => html+= engineerCard(employee))}
 
   </body>
   </html>`;
