@@ -9,6 +9,43 @@ function writeHtmlFile(data){
   var engineers = data.filter(employee => employee.github )
   var interns = data.filter(employee => employee.school)
 
+  function managerCard(object){
+  return `<container class="card" style="width: 15rem;">
+  <div class="bg-info" style="color:white">
+    <h1>${managers[0].name}</h1>
+    <h2>Manager</h2>
+    <!-- <a href="https://www.github.com/1234">1234</a> -->
+  </div>
+  <div>
+    <h3>ID: 123</h3>
+    <h3>Email: allan@allan.com</h3>
+    <h3>Office number: 1</h3>
+  </div>
+</container>`
+}
+
+  function engineerCard(object){
+    object = engineers
+    // for(i = 0; i < engineers.length ; i++){
+    //   console.log("objecti" + engineers)
+    //   console.log("objectlength" + engineers.length)
+    //   console.log("objectiname" + engineers[i].name)
+    return `<container class="card" style="width: 15rem;">
+  <div class="bg-info" style="color:white">
+    <h1>${engineers[0].name}</h1>
+    <h2>Engineer</h2>
+    <!-- <a href="https://www.github.com/1234">1234</a> -->
+  </div>
+  <div>
+    <h3>ID: 123</h3>
+    <h3>Email: allan@allan.com</h3>
+    <h3>Office number: ${engineers[0].github}</h3>
+  </div>
+</container>`
+  }
+
+console.log(managerCard)
+console.log(engineerCard)
   //format the data
   var html = `<!DOCTYPE html>
   <html lang="en">
@@ -22,8 +59,10 @@ function writeHtmlFile(data){
       <title>Document</title>
   </head>
   <body>
-    <container class= "card" style="width: 18rem;">
-${htmlStringVariable}    </container>
+  <h1 class="bg-danger jumbotron text-center" > My Team </h1>
+        ${managerCard(managers)}
+        ${engineerCard(engineers.forEach(element => engineerCard(engineers.name)))}
+
   </body>
   </html>`;
   return fs.writeFile("./dist/index.html", html, (err) => {

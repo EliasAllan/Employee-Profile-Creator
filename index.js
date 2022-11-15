@@ -16,6 +16,7 @@ employeeArr = [];
 //   <a href="https://www.github.com/${object.github}">${object.github}</a>
 //   </div>`
 // }
+
 // var htmlString = ""
 // engineers.map(employee => htmlString+= engineerCard(employee))
 // console.log(htmlString)
@@ -46,7 +47,7 @@ const addEng = () => {
     ]).then((data) => {
       employeeArr.push(new Engineer(data.engName, data.engId, data.engEmail, data.engGit))
       console.log(`${data.engName} is a good engineer`)     
-      console.log(employeeArr);
+      // console.log(employeeArr);
       mainMenu();
     })
 }
@@ -89,8 +90,10 @@ const addInt =() => {
 }
 
 const exit =() =>{
+ 
   writeHtmlFile(employeeArr)
   console.log("goodbye")
+  console.log("asdasdasd" + employeeArr)
 }
 
 const mainMenu = () => {
@@ -160,4 +163,4 @@ inquirer
 }
 
 
-// loginMenu();
+loginMenu();
