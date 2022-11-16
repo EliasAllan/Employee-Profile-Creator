@@ -6,20 +6,27 @@ const { getDiffieHellman } = require('crypto');
 const writeHtmlFile = require('./src/helper')
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
-
+const Intern = require('./lib/intern')
 employeeArr = [];
-// employeeArr.push(new Engineer("Alan", 5, "Allan@email.com", "github2"), new Engineer("Engi", 10, "Engi@email.com","gitty"))
+var managString = ""
+  var engString = ""
+  var intString = ""
+
+
+// employeeArr.push(new Engineer("Alan", 5, "Allan@email.com", "github2"), new Engineer("Engi", 10, "Engi@email.com","gitty"),new Engineer("oderengi", 11, "oderEngi@email.com","odergitty"))
 // var engineers = employeeArr.filter(employee=> employee.github)
-// function engineerCard(object){
+// function htmlCard(object){
 //   return `<div>
 //   <h1>${object.name}</h1>
 //   <a href="https://www.github.com/${object.github}">${object.github}</a>
 //   </div>`
 // }
-
 // var htmlString = ""
-// engineers.map(employee => htmlString+= engineerCard(employee))
+// engineers.map(employee => htmlString+= htmlCard(employee))
 // console.log(htmlString)
+
+
+
 const addEng = () => {
   inquirer
     .prompt([
@@ -46,8 +53,7 @@ const addEng = () => {
       
     ]).then((data) => {
       employeeArr.push(new Engineer(data.engName, data.engId, data.engEmail, data.engGit))
-      console.log(`${data.engName} is a good engineer`)     
-      // console.log(employeeArr);
+      console.log(employeeArr);
       mainMenu();
     })
 }
@@ -57,43 +63,36 @@ const addInt =() => {
   .prompt([
     {
       type: 'Input',
-      name: 'intname',
+      name: 'intName',
       message: "What is the intern's name ?"
     },
     {
       type: 'Input',
-      name: 'intid',
+      name: 'intId',
       message: "What is the intern's ID ?"
     },
     {
       type: 'Input',
-      name: 'intemail',
+      name: 'intEmail',
       message: "What is the intern's email ?"
     },
     {
       type: 'Input',
-      name: 'intschool',
+      name: 'intSchool',
       message: "What school does the intern go to?"
     },
     
   ]).then((data) => {
-    employeeArr.push({
-      intName: data.intname,
-      intId: data.intid,
-      intEmail: data.intemail,
-      intSchool: data.intschool,
-    })
-    console.log(`${data.intname} is a good engineer`)     
-    console.log(employeeArr);
-    mainMenu();
+    employeeArr.push(new Intern(data.intName, data.intId, data.intEmail, data.intSchool))   
+      console.log(employeeArr);
+      mainMenu();
   })
 }
 
 const exit =() =>{
- 
-  writeHtmlFile(employeeArr)
+  createCards()
+  writeHtmlFile(managString,engString,intString)
   console.log("goodbye")
-  console.log("asdasdasd" + employeeArr)
 }
 
 const mainMenu = () => {
@@ -154,7 +153,7 @@ inquirer
     // const teamMngName = data.teammanager
     // const empID = data.empid
     // const email = data.email
-    // const officeNum = data.officenumber
+    // const officeNum = data.officeNumber
     // const gitHubUser = data.githubusername
     // console.log(teamMngName,empID,email,officeNum,gitHubUser)
     // helper.writeHtmlFile(data)
@@ -162,5 +161,39 @@ inquirer
   });
 }
 
+const createCards = () =>{
+  var managers = employeeArr.filter(employee => employee.officeNumber)
+  var engineers = employeeArr.filter(employee => employee.github )
+  var interns = employeeArr.filter(employee => employee.school)
+
+  function managerCard(object){
+    return `<div>
+    <h1>${object.name}</h1>
+    <a href="https://www.github.com/${object.officeNumber}">${object.officeNumber}</a>
+    </div>`
+  }
+  function engineerCard(object){
+    return `<div>
+    <h1>${object.name}</h1>
+    <a href="https://www.github.com/${object.github}">${object.github}</a>
+    </div>`
+  }
+  function internCard(object){
+    return `<div>
+    <h1>${object.name}</h1>
+    <a href="https://www.github.com/${object.school}">${object.school}</a>
+    </div>`
+  }
+  
+  managers.map(employee => managString+= managerCard(employee))
+  engineers.map(employee => engString+= engineerCard(employee))
+  interns.map(employee => intString+= internCard(employee))
+  console.log(managString) 
+  console.log(engString) 
+  console.log(intString) 
+}
 
 loginMenu();
+
+module.exports = { createCards
+}

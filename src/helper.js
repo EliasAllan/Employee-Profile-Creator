@@ -3,50 +3,12 @@ const fs = require('fs');
 
 
 
-function writeHtmlFile(data){
-  console.log(data)
-  var managers = data.filter(employee => employee.officenumber)
-  var engineers = data.filter(employee => employee.github )
-  var interns = data.filter(employee => employee.school)
+function writeHtmlFile(managString,engString,intString){
+  console.log(managString,engString,intString)
+  // var managers = data.filter(employee => employee.officeNumber)
+  // var engineers = data.filter(employee => employee.github )
+  // var interns = data.filter(employee => employee.school)
 
-  function managerCard(object){
-  return `<container class="card" style="width: 15rem;">
-  <div class="bg-info" style="color:white">
-    <h1>${managers[0].name}</h1>
-    <h2>Manager</h2>
-    <!-- <a href="https://www.github.com/1234">1234</a> -->
-  </div>
-  <div>
-    <h3>ID: 123</h3>
-    <h3>Email: allan@allan.com</h3>
-    <h3>Office number: 1</h3>
-  </div>
-</container>`
-}
-
-  function engineerCard(object){
-    object = engineers
-    // for(i = 0; i < engineers.length ; i++){
-    //   console.log("objecti" + engineers)
-    //   console.log("objectlength" + engineers.length)
-    //   console.log("objectiname" + engineers[i].name)
-    for(i=0;i < engineers.length; i++){
-    return `<container class="card" style="width: 15rem;">
-  <div class="bg-info" style="color:white">
-    <h1>${engineers[i].name}</h1>
-    <h2>Engineer</h2>
-    <!-- <a href="https://www.github.com/1234">1234</a> -->
-  </div>
-  <div>
-    <h3>ID: 123</h3>
-    <h3>Email: allan@allan.com</h3>
-    <h3>Office number: ${engineers[0].github}</h3>
-  </div>
-</container>`
-  }}
-
-console.log(managerCard)
-console.log(engineerCard)
   //format the data
   var html = `<!DOCTYPE html>
   <html lang="en">
@@ -60,10 +22,9 @@ console.log(engineerCard)
       <title>Document</title>
   </head>
   <body>
-  <h1 class="bg-danger jumbotron text-center" > My Team </h1>
-        ${managerCard(managers)}
-        ${engineers.map(employee => html+= engineerCard(employee))}
-
+    <container class= "card" style="width: 18rem;">
+      ${managString,engString,intString}    
+    </container>
   </body>
   </html>`;
   return fs.writeFile("./dist/index.html", html, (err) => {
