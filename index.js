@@ -167,22 +167,46 @@ const createCards = () =>{
   var interns = employeeArr.filter(employee => employee.school)
 
   function managerCard(object){
-    return `<div>
-    <h1>${object.name}</h1>
-    <a href="https://www.github.com/${object.officeNumber}">${object.officeNumber}</a>
-    </div>`
+
+    
+    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    <div class="bg-info" style="color:white">
+      <h1>${object.name}</h1>
+      <h2>Manager</h2>
+    </div>
+    <div>
+      <h3>ID: ${object.id}</h3>
+      <h3>Email: ${object.email}</h3>
+      <h3>Office number: ${object.officeNumber}</h3>
+    </div>
+  </container>`
   }
+
   function engineerCard(object){
-    return `<div>
-    <h1>${object.name}</h1>
-    <a href="https://www.github.com/${object.github}">${object.github}</a>
-    </div>`
+    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    <div class="bg-info" style="color:white">
+      <h1>${object.name}</h1>
+      <h2>Engineer</h2>
+    </div>
+    <div>
+      <h3>ID: ${object.id}</h3>
+      <h3>Email: ${object.email}</h3>
+      <h3>GitHub: ${object.github}</h3>
+    </div>
+  </container>`
   }
   function internCard(object){
-    return `<div>
-    <h1>${object.name}</h1>
-    <a href="https://www.github.com/${object.school}">${object.school}</a>
-    </div>`
+    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    <div class="bg-info" style="color:white">
+      <h1>${object.name}</h1>
+      <h2>Intern</h2>
+    </div>
+    <div>
+      <h3>ID: ${object.id}</h3>
+      <h3>Email: ${object.email}</h3>
+      <h3>School: ${object.school}</h3>
+    </div>
+  </container>`
   }
   
   managers.map(employee => managString+= managerCard(employee))

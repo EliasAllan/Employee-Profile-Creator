@@ -22,9 +22,12 @@ function writeHtmlFile(managString,engString,intString){
       <title>Document</title>
   </head>
   <body>
-    <container class= "card" style="width: 18rem;">
-      ${managString,engString,intString}    
-    </container>
+  <h1 class="bg-danger jumbotron text-center" > My Team </h1>
+  <main style="display:flex;flex-wrap: wrap;justify-content: space-evenly;">
+      ${managString}
+      ${engString}
+      ${intString} 
+  </main>
   </body>
   </html>`;
   return fs.writeFile("./dist/index.html", html, (err) => {
