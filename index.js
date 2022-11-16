@@ -1,31 +1,16 @@
 const inquirer = require('inquirer')
 const helper = require('./src/helper')
 const fs = require('fs');
-const { getSystemErrorName } = require('util');
-const { getDiffieHellman } = require('crypto');
+const { getSystemErrorName } = require('util'); //<-------- whats this ?
+const { getDiffieHellman } = require('crypto'); //<-------- and this ?
 const writeHtmlFile = require('./src/helper')
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
 employeeArr = [];
 var managString = ""
-  var engString = ""
-  var intString = ""
-
-
-// employeeArr.push(new Engineer("Alan", 5, "Allan@email.com", "github2"), new Engineer("Engi", 10, "Engi@email.com","gitty"),new Engineer("oderengi", 11, "oderEngi@email.com","odergitty"))
-// var engineers = employeeArr.filter(employee=> employee.github)
-// function htmlCard(object){
-//   return `<div>
-//   <h1>${object.name}</h1>
-//   <a href="https://www.github.com/${object.github}">${object.github}</a>
-//   </div>`
-// }
-// var htmlString = ""
-// engineers.map(employee => htmlString+= htmlCard(employee))
-// console.log(htmlString)
-
-
+var engString = ""
+var intString = ""
 
 const addEng = () => {
   inquirer

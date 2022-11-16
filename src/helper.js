@@ -5,11 +5,10 @@ const fs = require('fs');
 
 function writeHtmlFile(managString,engString,intString){
   console.log(managString,engString,intString)
-  // var managers = data.filter(employee => employee.officeNumber)
-  // var engineers = data.filter(employee => employee.github )
-  // var interns = data.filter(employee => employee.school)
 
   //format the data
+  //dont forget to make the links clickable
+  
   var html = `<!DOCTYPE html>
   <html lang="en">
   <head>
