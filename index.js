@@ -161,7 +161,7 @@ const createCards = () =>{
     </div>
     <div style="margin: 40px 20px">
       <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
-      <h3 style="border-width: 1px;border-style: solid;">Email: ${object.email}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>     
       <h3 style="border-width: 1px;border-style: solid;">Office number: ${object.officeNumber}</h3>
     </div>
   </container>`
@@ -175,10 +175,8 @@ const createCards = () =>{
     </div>
     <div style="margin: 40px 20px">
       <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
-      <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>
-
-      
-      <h3 style="border-width: 1px;border-style: solid;">GitHub: ${object.github}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>     
+      <h3 style="border-width: 1px;border-style: solid;">Github: <a href="https://www.github.com/${object.github}">${object.github}</a> </h3>     
     </div>
   </container>`
   }
@@ -190,7 +188,7 @@ const createCards = () =>{
     </div>
     <div style="margin: 40px 20px">
       <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
-      <h3 style="border-width: 1px;border-style: solid;">Email: ${object.email}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>     
       <h3 style="border-width: 1px;border-style: solid;">School: ${object.school}</h3>
     </div>
   </container>`
