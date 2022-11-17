@@ -154,42 +154,44 @@ const createCards = () =>{
   function managerCard(object){
 
     
-    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    return `<container class="card" style="height: 21rem; width: 18rem; margin: 30px 95px ">
     <div class="bg-info" style="color:white">
       <h1>${object.name}</h1>
       <h2>Manager</h2>
     </div>
-    <div>
-      <h3>ID: ${object.id}</h3>
-      <h3>Email: ${object.email}</h3>
-      <h3>Office number: ${object.officeNumber}</h3>
+    <div style="margin: 40px 20px">
+      <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: ${object.email}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Office number: ${object.officeNumber}</h3>
     </div>
   </container>`
   }
 
   function engineerCard(object){
-    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    return `<container class="card" style="height: 21rem; width: 18rem; margin: 30px 95px ">
     <div class="bg-info" style="color:white">
       <h1>${object.name}</h1>
       <h2>Engineer</h2>
     </div>
-    <div>
-      <h3>ID: ${object.id}</h3>
-      <h3>Email: ${object.email}</h3>
-      <h3>GitHub: ${object.github}</h3>
+    <div style="margin: 40px 20px">
+      <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>
+
+      
+      <h3 style="border-width: 1px;border-style: solid;">GitHub: ${object.github}</h3>
     </div>
   </container>`
   }
   function internCard(object){
-    return `<container class="card" style="height: 18rem; width: 15rem; margin: 30px 90px ">
+    return `<container class="card" style="height: 21rem; width: 18rem; margin: 30px 95px; ">
     <div class="bg-info" style="color:white">
       <h1>${object.name}</h1>
       <h2>Intern</h2>
     </div>
-    <div>
-      <h3>ID: ${object.id}</h3>
-      <h3>Email: ${object.email}</h3>
-      <h3>School: ${object.school}</h3>
+    <div style="margin: 40px 20px">
+      <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">Email: ${object.email}</h3>
+      <h3 style="border-width: 1px;border-style: solid;">School: ${object.school}</h3>
     </div>
   </container>`
   }
@@ -197,9 +199,6 @@ const createCards = () =>{
   managers.map(employee => managString+= managerCard(employee))
   engineers.map(employee => engString+= engineerCard(employee))
   interns.map(employee => intString+= internCard(employee))
-  console.log(managString) 
-  console.log(engString) 
-  console.log(intString) 
 }
 
 loginMenu();
