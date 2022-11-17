@@ -176,7 +176,7 @@ const createCards = () =>{
     <div style="margin: 40px 20px">
       <h3 style="border-width: 1px;border-style: solid;">ID: ${object.id}</h3>
       <h3 style="border-width: 1px;border-style: solid;">Email: <a href="mailto:${object.email}">${object.email}</a> </h3>     
-      <h3 style="border-width: 1px;border-style: solid;">Github: <a href="https://www.github.com/${object.github}">${object.github}</a> </h3>     
+      <h3 style="border-width: 1px;border-style: solid;">Github: <a href="https://www.github.com/${object.github}" target="_blank">${object.github}</a> </h3>     
     </div>
   </container>`
   }
